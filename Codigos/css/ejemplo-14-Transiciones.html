@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transiciones</title>
+    <style>
+        h1 {
+            margin: 150px 0 0 200px;
+            padding: 20px;
+            border: 2px solid blue;
+            width: 40%;
+            background-color: aqua;
+            color: blue;
+        }
+
+        h1:hover {
+            transition-property: background-color, color, width;
+            transition-duration: 2s;
+            transition-delay: 1s;
+            transition-timing-function: ease-out;
+            background-color: brown;
+            color: beige;
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Título Página</h1>
+</body>
+</html>

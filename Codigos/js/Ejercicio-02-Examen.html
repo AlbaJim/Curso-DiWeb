@@ -1,0 +1,287 @@
+<!-- Ejercicio-02-Examen.html -->
+<!-- rodriguez-ivan-1305.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Repaso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <main class="w-50">
+        <p id="p1" class="alert alert-info p-3 m-3">P1</p>
+        <button onclick="menu()" class="btn btn-outline-success p-1 m-3">Menú</button>
+    </main>
+    <script>
+        function menu() {
+            let mensaje = "1. Nómina \n" +
+                "2. Coche \n" +
+                "3. Ec2Grado \n" +
+                "4. TablasMultiplicar \n" +
+                "5. Balay \n" +
+                "6. Salir \n" +
+                "Elije Opción"
+
+            let opcion = 0
+
+            while (opcion != 6) {
+                let respuesta = prompt(mensaje)
+                if (respuesta == null) {
+                    break
+                }
+                opcion = parseInt(respuesta)
+                let parrafo = document.getElementById("p1")
+                //parrafo.textContent = opcion
+
+                switch (opcion) {
+                    case 1: alert(nomina()); break
+                    case 2: coche(); break
+                    case 3:
+                        let a = parseInt(prompt("Dame a"));
+                        let b = parseInt(prompt("Dame b"));
+                        let c = parseInt(prompt("Dame c"));
+                        ec2Grado(a, b, c); break
+                    case 4:
+                        let x, y = 0
+                        x = parseInt(prompt("Dime un numero (1-10)"))
+                        while (x < 1 || x > 10) {
+                            x = parseInt(prompt("Dime un numero (1-10)"))
+                        }
+                        y = parseInt(prompt("Dime otro numero"))
+                        while (y < 1 || y > 10 || Math.abs(x - y) < 3) {
+                            y = parseInt(prompt("Dime otro numero (1-10)"))
+                        }
+
+                        alert(tablasMultiplicar(x, y)); break
+                    case 5:
+                        balay(); break;
+
+                    default: alert("Adiós"); break;
+                }
+            }
+        }
+
+        function nomina() {
+            let sueldo = parseFloat(prompt("Dame el sueldo anual"))
+            let neto = 0.0
+            let fijos = 6.4
+            let mensual = sueldo / 12
+            let irpf = 5
+            if (sueldo > 10000 || sueldo < 20000) {
+                irpf = 15
+            } else if (sueldo >= 20000 || sueldo < 30000) {
+                irpf = 25
+            } else if (sueldo >= 30000 || sueldo <= 40000) {
+                irpf = 35
+            }
+            neto = mensual - (mensual * irpf / 100)
+                - (mensual * fijos / 100)
+            return neto
+        }
+
+        class Coche {
+            modelo = ""
+            bateria = 40
+            velocidad = 0
+
+            constructor(modelo) {
+                this.modelo = modelo
+            }
+            acelerar(velocidad) {
+                this.velocidad = this.velocidad + velocidad
+                if (velocidad >= 10 && velocidad < 30) {
+                    this.bateria = this.bateria - (this.bateria * 1 / 100)
+                } else if (velocidad >= 30 && velocidad < 50) {
+                    this.bateria = this.bateria - (this.bateria * 2 / 100)
+                }
+            }
+            frenar(velocidad) {
+                this.velocidad = this.velocidad - velocidad
+                if (velocidad >= 10 && velocidad < 30) {
+                    this.bateria = this.bateria + (this.bateria * 0.5 / 100)
+                } else if (velocidad >= 30 && velocidad < 50) {
+                    this.bateria = this.bateria + (this.bateria * 1 / 100)
+                }
+            }
+        }
+        function coche() {
+            let mikona = new Coche("Hyundai Kona")
+            alert(JSON.stringify(mikona, null, 2))
+            mikona.acelerar(35)
+            alert(JSON.stringify(mikona, null, 2))
+            mikona.frenar(20)
+            alert(JSON.stringify(mikona, null, 2))
+        }
+        //Ejercicio 4
+        function ec2Grado(a, b, c) {
+            let disc = (b * b) - 4 * a * c;
+            if (disc <= 0) {
+                alert("No tiene solución");
+            }
+            else {
+                let raiz = Math.sqrt(disc)
+                let dividendo1 = -b + raiz
+                let dividendo2 = -b - raiz
+                let divisor = 2 * a
+                let x1 = dividendo1 / divisor
+                let x2 = dividendo2 / divisor
+                alert("x1 = " + x1)
+                alert(`x2 = ${x2}`)//Presntarlo con tilde grave
+            }
+
+        }
+        function tablasMultiplicar(x, y) {
+            let max = 0
+            let min = 0
+            if (x > y) {
+                max = x
+                min = y
+            } else {
+                max = y
+                min = x
+            }
+            let a = Math.floor(Math.random() * (max - min + 1) + min);
+            let nums = [];
+            nums[0] = a
+            let b = 0;
+            for (i = 1; i <= 2; i++) {
+                b = Math.floor(Math.random() * (max - min + 1) + min);
+
+                for (j = 0; j < nums.length; j++) {
+                    while (b == nums[j]) {
+                        b = Math.floor(Math.random() * (max - min + 1) + min);
+                    }
+                }
+
+                nums[i] = b;
+            }
+
+            /*
+            alert(x)
+            alert(y)
+            alert(a)
+            alert(nums)
+            */
+            let cadena = ""
+            for (i = 0; i < 3; i++) {
+                for (j = 1; j <= 5; j++) {
+                    let rdo = nums[i] * j
+                    cadena += `${nums[i]} x ${j} = ${rdo}` + "\n"
+                }
+                cadena += "\n"
+            }
+            return cadena
+        }
+
+        // 
+        //
+        // Ejercicio BALAY :(
+        class Productos {
+            // Atributos
+            denominacion = "";
+            stock = 3;
+
+            // Constructor...?
+            constructor(denominacion, stock) {
+                this.denominacion = denominacion;
+                this.stock = stock;
+            }
+
+            // Métodos (?)
+            leer() {
+                let den = prompt("Dame nombre");
+                let st = parseInt(prompt("Dame stock"));
+
+                let producto = new Productos(den, st);
+                return producto;
+
+            }
+
+            imprimir() {
+                return {
+                    "Denominación": this.denominacion,
+                    "Stock": this.stock
+                }
+            }
+        }
+
+        class Frigos extends Productos {
+            importe = 100.00;
+            noFrost = true;
+            fechaVenta = "";
+
+            constructor(denominacion, stock, importe,
+                noFrost, fechaVenta) {
+                super(denominacion, stock);
+                this.importe = importe;
+                this.noFrost = noFrost;
+                this.fechaVenta = fechaVenta;
+            }
+
+            leer() {
+                let den = prompt("Dame nombre");
+                let st = parseInt(prompt("Dame stock"));
+
+                let importe = parseFloat(prompt("Dame importe"));
+                let noFrost = prompt("Dame no-frost");
+                let fechaVenta = prompt("Dame fecha");
+
+                let frigo = new Frigos(den, st, importe, noFrost, fechaVenta)
+                return frigo;
+            }
+
+            imprimir() {
+                let json = super.imprimir();
+                json["Importe"] = this.importe;
+                json["No-Frost"] = this.noFrost;
+                json["Fecha Venta"] = this.fechaVenta;
+
+                return json;
+            }
+        }
+
+        function balay() {
+
+            /*
+            let p1 = new Productos("Microondas", 20)
+            let p2 = p1.leer()
+
+            alert(JSON.stringify(p1.imprimir(), null, 2))
+            alert(JSON.stringify(p2.imprimir(), null, 2))
+            */
+
+            let f1 = new Frigos("Balay", 10, 179.99, true, "2024-01-12")
+            let f2 = f1.leer()
+
+            alert(JSON.stringify(f1.imprimir(), null, 2))
+            alert(JSON.stringify(f2.imprimir(), null, 2))
+
+            let numeroFrigos = parseInt(prompt("¿Cuántos frigoríficos quieres ingresar?"));
+            let frigorificos = [];
+
+            for (let i = 0; i < numeroFrigos; i++) {
+                frigorificos[i] = f2.leer();
+            }
+
+            for (let frigo of frigorificos) {
+                alert(JSON.stringify(frigo.imprimir(), null, 2));
+            }
+
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

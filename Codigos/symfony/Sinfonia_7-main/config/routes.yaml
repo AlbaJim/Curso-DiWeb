@@ -1,0 +1,13 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+# Defino una ruta
+app_aleatorio_aleatorio3:
+    path: /aleatorio/ej3
+    controller: App\Controller\AleatorioController::index3
+
+app_aleatorio_aleatorio5:
+    path: /aleatorio/ej5/{num1}/{num2}
+    controller: App\Controller\AleatorioController::index5

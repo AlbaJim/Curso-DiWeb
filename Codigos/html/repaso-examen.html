@@ -1,0 +1,159 @@
+<!-- repaso-examen.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso Examen</title>
+    <style>
+        table {
+            border-collapse: separate;
+        }
+
+        th,
+        td {
+            border: 1px solid blue;
+            padding: 5px;
+        }
+
+        details {
+            width: 40%;
+            border: 1px solid grey;
+            padding: 5px;
+            margin: 10px;
+            transition: all 1s ease;
+        }
+
+        details[open]{
+            background-color: aqua;
+            width: 60%;
+            border: 2px solid green;
+        }
+
+        #nombre {
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body>
+
+    <figure>
+        <h1>
+            <a href="https://www.elcorteingles.es/">
+                <img src="https://shorturl.at/sLTUX" alt="El Corte inglés" width="100">
+            </a>
+        </h1>
+    </figure>
+    
+
+    <table>
+        <caption>Titulo</caption>
+        <colgroup>
+            <col span="1" style="background-color: gray;">
+            <col span="2">
+            <col span="1" style="background-color: gray;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th colspan="4">Animales</th>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <th>Cabezas</th>
+                <th>2010</th>
+                <th>2020</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Ballena</td>
+                <td>6000</td>
+                <td>4000</td>
+                <td>1500</td>
+            </tr>
+            <tr>
+                <td>Oso Pardo</td>
+                <td>50</td>
+                <td rowspan="2" colspan="2">0</td>
+            </tr>
+            <tr>
+                <td>Lince</td>
+                <td>10</td>
+            </tr>
+            <tr style="color: red;">
+                <td>Tigre</td>
+                <td>300</td>
+                <td colspan="2">210</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="#" method="get">
+        <h2>Información sobre el producto</h2>
+        <fieldset>
+            <legend>Datos Básicos</legend>
+            <label for="nombre">Nombre</label><br>
+            <input type="text" name="nombre" id="nombre"><br>
+
+            <label for="descripcion">Descripción</label><br>
+            <textarea name="descripcion" id="descripcion" cols="30" rows="10"
+                placeholder="Pon descripcion"></textarea><br>
+
+            <label for="foto">Foto</label>
+            <input type="file" name="foto" id="foto"><br>
+
+            <input type="checkbox" name="contador" id="contador" value="si">
+            <label for="contador">Añadir contador de visitas</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Datos económicos</legend>
+            <label for="precio">Precio</label>
+            <input type="number" name="precio" id="precio">€
+            <label for="impuestos">impuestos</label>
+            <select name="impuestos" id="impuestos">
+                <option disabled selected>Elije opción</option>
+                <option value="4">4%</option>
+                <option value="7">7%</option>
+                <optgroup label="Altos">
+                    <option value="16">16%</option>
+                    <option value="25">25%</option>
+                </optgroup>
+            </select>
+            <br>
+
+            <p>Promoción</p>
+            <input type="radio" name="promocion" id="ninguno" value="ninguno">
+            <label for="ninguno">ninguno</label><br>
+            <input type="radio" name="promocion" id="transporte" value="transporte">
+            <label for="transporte">Transporte gratuito</label><br>
+            <input type="radio" name="promocion" id="descuento" value="descuento">
+            <label for="descuento">Descuento 5%</label><br>
+        </fieldset>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <section aria-label="acordeones">
+        <details>
+            <summary>Chocolate</summary>
+            <p>Está muy rico</p>
+        </details>
+        <details>
+            <summary>Vinito</summary>
+            <p>Deja el culo pepsicola</p>
+        </details>
+        <details>
+            <summary>Polvorón</summary>
+            <p>Lavativa de estómago</p>
+        </details>
+    </section>
+
+    <p>.</p><p>.</p><p>.</p><p>.</p>
+    <p>.</p><p>.</p><p>.</p><p>.</p>
+</body>
+
+</html>

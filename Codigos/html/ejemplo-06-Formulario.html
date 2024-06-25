@@ -1,0 +1,95 @@
+<!--
+    ejemplo-05-Tablas2.html
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- favicon-->
+    <link rel="shortcut icon" href="https://shorturl.at/dovI2" 
+    type="image/x-icon">
+</head>
+<body>
+    <!-- 
+
+    -->
+    <form action="#" method="post">
+        <label for="correo">Correo Electrónico</label>
+        <input type="email" name="mail" id="correo"><br>
+        <label for="clave">Contraseña</label>
+        <input type="password" name="c" id="clave"><br>
+        <input type="reset" value="Borrar">
+        <input type="submit" value="Killa dame fuerte">
+    </form>
+    
+    <hr><br>
+
+    <form action="#" method="get">
+        <fieldset>
+            <legend>Datos Personales</legend>
+            <label for="nombre">nombre</label>
+            <input type="text" name="nombre" id="nombre"
+            onchange="alert('Has escrito algo')" required><br>
+            <label for="edad">edad</label>
+            <input type="number" name="edad" id="edad" required><br>
+        </fieldset>
+
+        <fieldset>
+            <label for="color">color</label>
+            <input type="color" name="color" id="color"><br>
+            <label for="fecha">fecha</label>
+            <input type="date" name="fecha" id="fecha"><br>
+            <label for="rango">rango</label>
+
+            <input type="range" name="rango" id="rango" 
+            min="20" max="30" step="2"
+            oninput="valrango.value = rango.value">
+            <input type="number" name="valrango" id="valrango"
+            min="20" max="30" step="2"
+            oninput="rango.value = valrango.value"><br>
+        </fieldset>
+
+        <fieldset>
+            <p><mark>Asignaturas</mark> :</p>
+            <input type="checkbox" name="materia[]" id="html" value="html">
+            <label for="html">html</label><br>
+            <input type="checkbox" name="materia[]" id="css" value="css">
+            <label for="css">css</label><br>
+            <input type="checkbox" name="materia[]" id="js" value="js">
+            <label for="js">js</label><br>
+            <hr>
+            <p>Sexo</p>
+            <input type="radio" name="sexo" id="mujer" value="m">
+            <label for="mujer">mujer</label><br>
+            <input type="radio" name="sexo" id="hombre" value="h">
+            <label for="hombre">hombre</label><br>
+            <input type="hidden" name="pagina" value="3">
+        </fieldset>
+
+        <fieldset>
+            <legend>Selecionar Provincia</legend>
+            <label for="provincia">provincia</label>
+            <select name="provincia" id="provincia">
+                <option disabled selected>Elije Opción</option>
+                <option value="svq">Sevilla</option>
+                <optgroup label="El resto...">
+                    <option value="mal">Málaga</option>
+                    <option value="cai">Cádiz</option>
+                </optgroup>
+                
+            </select>
+            <input type="submit" value="Enviar">
+        </fieldset>
+    </form>
+    <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+    <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+</body>
+</html>

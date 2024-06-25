@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buscaminas</title>
+<style>
+    .cell {
+        width: 40px;
+        height: 40px;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 40px;
+        float: left;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div id="grid"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const grid = document.getElementById('grid');
+    const size = 5;
+    const totalCells = size * size;
+    const totalMines = 3;
+    const cells = [];
+
+    // Inicializar el grid
+    for (let i = 0; i < totalCells; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.setAttribute('data-index', i);
+        cell.addEventListener('click', cellClick);
+        grid.appendChild(cell);
+        cells.push(cell);
+    }
+
+    // Colocar minas
+    const mineIndices = generateMineIndices(totalMines, totalCells);
+    mineIndices.forEach(index => {
+        cells[index].classList.add('mine');
+    });
+
+    // Función para manejar el clic de la celda
+    function cellClick(event) {
+        const cell = event.target;
+        const index = parseInt(cell.getAttribute('data-index'));
+        if (cell.classList.contains('mine')) {
+            cell.textContent = '💣';
+            revealMines();
+            alert('¡Perdiste! Haz clic en "Reiniciar" para jugar de nuevo.');
+        } else {
+            const nearbyMines = countNearbyMines(index);
+            cell.textContent = nearbyMines > 0 ? nearbyMines : '';
+            cell.classList.add('revealed');
+        }
+    }
+
+    // Función para contar minas cercanas
+    function countNearbyMines(index) {
+        let count = 0;
+        const offsets = [-size - 1, -size, -size + 1, -1, 1, size - 1, size, size + 1];
+        offsets.forEach(offset => {
+            const neighborIndex = index + offset;
+            if (neighborIndex >= 0 && neighborIndex < totalCells &&
+                Math.floor(neighborIndex / size) === Math.floor(index / size) + Math.floor(offset / size) &&
+                cells[neighborIndex].classList.contains('mine')) {
+                count++;
+            }
+        });
+        return count;
+    }
+
+    // Función para revelar todas las minas
+    function revealMines() {
+        cells.forEach(cell => {
+            if (cell.classList.contains('mine')) {
+                cell.textContent = '💣';
+            }
+        });
+    }
+
+    // Función para generar índices aleatorios para las minas
+    function generateMineIndices(totalMines, totalCells) {
+        const mineIndices = [];
+        while (mineIndices.length < totalMines) {
+            const index = Math.floor(Math.random() * totalCells);
+            if (!mineIndices.includes(index)) {
+                mineIndices.push(index);
+            }
+        }
+        return mineIndices;
+    }
+});
+</script>
+
+</body>
+</html>

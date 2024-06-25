@@ -1,0 +1,97 @@
+<!-- ejemplo-05-Posicionamiento.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicionamiento</title>
+    <style>
+        /*
+        main>h2+p {
+            border: 1px solid blue;
+        }
+
+        main>hr+p,
+        main>hr+p+p {
+            border: 1px solid red;
+        }*/
+
+        /*
+        main :nth-child(3){
+            border: 1px solid blue;
+        }
+        
+        main p:first-of-type {
+            border: 1px solid blue;
+        }
+        */
+
+        h1, h2, p {
+            width: 40%;
+            background-color:aquamarine; 
+        }
+
+        h1 {
+            position: static;
+        }
+
+        h2 {
+            position: relative;
+            top: 20px;
+            left: 300px;
+        }
+
+        main p:nth-of-type(1) {
+            border: 1px solid blue;
+            position: absolute;
+            top: 20px;
+            left: 300px;
+        }
+
+        main p:nth-of-type(2){
+            border: 1px solid red;
+            position: fixed;
+            top: 70px;
+            left: 300px;
+        }
+
+        main p:nth-of-type(3){
+            color: red;
+            float: left;
+        }
+
+        main p:nth-of-type(4){
+            color: red;
+            float: right;
+        }
+
+        main p:last-of-type{
+            border: 1px solid green;
+        }
+        
+        h3 {
+            margin-top: 100px;
+            /*visibility: hidden;*/
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Titulo de la página</h1>
+        <h2>Subtitulo</h2>
+        <p>Párrafo1</p>
+        <hr>
+        <p>Párrafo2</p>
+        <p>Párrafo3</p>
+        <p>Párrafo4</p>
+        
+        <h3>.</h3><h3>.</h3><h3>.</h3><h3>.</h3>
+        <h3>.</h3><h3>.</h3><h3>.</h3><h3>.</h3>
+        <h3>.</h3><h3>.</h3><h3>.</h3><h3>.</h3>
+    </main>
+
+</body>
+
+</html>

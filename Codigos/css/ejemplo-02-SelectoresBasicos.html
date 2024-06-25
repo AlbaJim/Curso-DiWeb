@@ -1,0 +1,73 @@
+<!-- ejemplo-02-SelectoresBasicos.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores Basicos</title>
+    <style>
+        /* Selector Universal -> Resetear CSS */
+        * {
+            color: black;
+            background-color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        
+        p {
+            color: blue;
+        }
+
+        span {
+            color: red;
+        }
+
+        p, span {
+            border: 1px dotted blue;
+        }
+
+        /* Selectores FAMILIA! */
+        /* 1. Descendente */
+        p a {
+            color: blue;
+            text-decoration: overline;
+        }
+
+        /* 2. Descendente directo (hijo) */
+        p > a {
+            font-style: italic;
+        }
+
+        /* Ej: Página22, p * a, ahora se hace así:*/
+        /* 
+        p > span > a {
+            color: red;
+        }
+        */
+
+        /* 3. Adyacente (hermano) */
+        p + p {
+            background-color: aquamarine;
+        }
+
+        .fuente {
+            font-family: 'Franklin Gothic Medium';
+        }
+
+        #mitexto {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <p class="fuente">Hola Mundo!</p>
+    <p>Segundo párrafo</p>
+    <span id="mitexto"
+    style="text-decoration: none;">Un texto</span>
+    <p>un párrafo con <span>un texto dentro!</span></p>
+    <p>un párrafo con 
+        <span>un texto con <a href="#">Enlace</a></span>
+    </p>
+    <p class="fuente">Párrafo con <a href="#">Enlace dentro</a></p>
+</body>
+</html>

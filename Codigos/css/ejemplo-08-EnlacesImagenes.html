@@ -1,0 +1,38 @@
+<!-- ejemplo-08-EnlacesImagenes -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnlacesImagenes</title>
+    <style>     
+        a:hover {
+            background-color: pink;
+        } 
+
+        a:active {
+            color: red;
+        }
+
+        /* [CSS3] box-shadow */
+        img {
+            box-shadow: 5px 10px 15px 10px red;
+        }
+
+        /* Ponme el enlace de ElCorteInglés con tamaño de letra
+        de 80px, y una sombra de texto de 5px horizontal, 
+        5px vertical hacia arriba, difuminado de 10px y color azul */
+        a {
+            font-size: 80px;
+            text-shadow: 5px -5px 10px blue;
+        }
+    </style>    
+</head>
+<body>
+    <main>
+        <h1><a href="https://www.elcorteingles.es">
+            El Corte Inglés </a></h1>
+        <img src="img/elcortedeingles.png" alt=".">
+    </main>
+</body>
+</html>

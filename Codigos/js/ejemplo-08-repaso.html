@@ -1,0 +1,158 @@
+<!--
+    diweb2023/Codigos/js/ejemplo-03-bucleFor.html
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Plantilla JS</title>
+    
+    <script>
+
+        // Pide nota y pon Sobresaliente (>=9), Notable (>=7)
+        // Aprobado (>=5) y Suspenso (<5)
+        function ejemploIF() {
+            let nota = parseInt(prompt("Nota:"));
+            if(nota >= 9) {
+                alert("Sobresaliente");
+            }else if (nota >=7) {
+                alert("Notable");
+            }else if(nota >=5){
+                alert("Aprobado");
+            }else  {
+                alert("Suspenso");
+            }
+        }
+
+        // Pide estrellas del 1 al 5, 1: suspenso, 2: aprobado
+        // 3: bien; 4: notable; 5: sobresaliente
+        function ejemploSWITCH() {
+            let nota = parseInt(prompt("Estrellas:"));
+            switch (nota) {
+                case 1: alert("suspenso"); break;
+                case 2: alert("aprobado"); break;
+                case 3: alert("bien"); break;
+                case 4: alert("notable"); break;
+                case 5: alert("sobresaliente"); break;
+                default: alert("Este no vale"); break;
+            }
+        }
+
+        // Pedir una lista de frutas y mostrarlas
+        function ejemploWHILE(){
+            // Pedimos el número de frutas
+            // Definimos el array vacio
+            let frutas = [];
+            let num = parseInt(prompt("Nº Frutas:"));
+            let i = 0;
+            // Primer bucle para meter datos
+            // OJo que la variación va dentro
+            while (i < num) {
+                frutas[i] = prompt("Dime fruta");
+                i++;
+            }
+            let listaFrutas = "";
+            i = 0;
+            // Segundo bucle para imprimir datos
+            while (i <num) {
+                listaFrutas += frutas[i] + "\n";
+                i++;
+            }
+            alert(listaFrutas);
+        }
+
+        // El ejemplo de la frutas con FOR
+        function ejemploFOR() {
+            let frutas = [];
+            let num = parseInt(prompt("Nº Frutas:"));
+            for(let i=0; i<num; i++){
+                frutas[i] = prompt("Dime fruta");
+            }
+            let listaFrutas = "";
+            for(let i=0; i<num; i++){
+                listaFrutas += frutas[i] + "\n";
+            }
+            alert(listaFrutas);
+        }
+
+        // Suma de matrices (A + B)
+        function ejemplo2FOR() {
+            let num = parseInt(prompt("Dimensión"));
+            // Defino las matrices
+            let a = [];
+            let b = [];
+            let c = [];
+
+            // Pido datos para ambas matrices
+            for (let i=0; i<num; i++){
+                // Declaro para cada array un array interno
+                a[i] = [];
+                b[i] = [];
+                c[i] = [];
+                // Y voy pidiendo datos y sumando a la vez
+                for(let j=0; j<num; j++){
+                    a[i][j] = parseInt(prompt("Nº Matriz A"));
+                    b[i][j] = parseInt(prompt("Nº Matriz B"));
+                    c[i][j] = a[i][j] + b[i][j];
+                }
+            }
+            // El resultado
+            let mensaje = "La matriz suma \n";
+            for (let i=0; i<num; i++){
+                for(let j=0; j<num; j++){
+                    mensaje += c[i][j] + " ";
+                }
+                mensaje += "\n";
+            }
+            alert(mensaje);
+        }
+        
+        // Función iniciar
+        // Dentro va un ejemplo de switch
+        function iniciar() {
+            let menu =  "-- MENU 🧛‍♂️ -- \n "+ 
+                        "➕ 1. Ejemplo if \n" +         
+                        "➖ 2. Ejemplo Switch \n" +
+                        "✖️ 3. Ejemplo While \n" +   
+                        "➗ 4. Ejemplo FOR \n" +
+                        "💨 5. Ejemplo Doble FOR \n" +
+                        "💨 6. Salir \n" +
+                        "Elije opción: ";
+            let opcion = 0;
+            while (opcion != 6) {
+                let respuesta = prompt(menu);
+                if (respuesta == null) {
+                    break;
+                }
+                opcion = parseInt(respuesta);
+
+                switch (opcion) {
+                    case 1: ejemploIF(); break;
+                    case 2: ejemploSWITCH(); break;
+                    case 3: ejemploWHILE(); break;
+                    case 4: ejemploFOR(); break;
+                    case 5: ejemplo2FOR(); break;
+                    case 6: alert("Fin de la aplicación"); break;
+                    default: alert("Elije del 1 al 6 tarugo! <i class='fas fa-sad-tear'></i>");
+                        break;
+                }
+            }
+            alert("¡Adios!");
+        }
+    </script>
+</head>
+
+<body>
+    <main class="p-3 m-3">
+        <button class="btn btn-outline-danger" onclick="iniciar()">
+            Iniciar función</button>
+    </main>
+</body>
+
+</html>

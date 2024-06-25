@@ -1,0 +1,93 @@
+<!--
+    ejemplo-05-Tablas2.html
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        caption {
+            font-weight: bold;
+            color: red;
+        }
+
+        table {
+            border-collapse: separate;
+            color: green;
+            margin: 10px;
+            caption-side: bottom;
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 10px;
+            background-color: aqua;
+            text-align: center;
+            
+        }
+
+        iframe {
+            border: 5px solid red;
+        }
+
+        thead {
+            color: blue;
+        }
+    </style>
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- favicon-->
+    <link rel="shortcut icon" href="https://shorturl.at/dovI2" 
+    type="image/x-icon">
+</head>
+<body>
+    <table>
+        <caption>Cursos de Diseño Gráfico</caption>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Horas</th>
+                <th>Plaza</th>
+                <th>Horario</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>HTML</td>
+            <td colspan="2">20</td>
+            <td rowspan="2">
+                <!--
+                <img src="https://acortar.link/Y0QAcQ" 
+                    alt="Converse" width="150">-->
+                <img src="img/converse.jpg" alt="Converse"
+                height="100">
+                09-13</td>
+        </tr>
+        <tr>
+            <td>CSS</td>
+            <td rowspan="2" colspan="2">
+                <i class="fa-brands fa-github fa-beat"></i>
+                40
+            </td>
+        </tr>
+        <tr>
+            <td>JS</td>
+            <td rowspan="2">08-12</td>
+        </tr>
+        <tr>
+            <td>Ajax</td>
+            <td>60</td>
+            <td>20</td>
+        </tr>
+    </table>
+
+   
+    <iframe width="500" height="280" 
+    src="https://www.youtube.com/embed/WF_6XRO9Xbo?si=Df_isnpIDD8C9avM" 
+    title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</body>
+</html>

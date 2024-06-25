@@ -1,0 +1,94 @@
+<!-- ejemplo-09-ListasTablas -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas y Tablas</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /*Estilos para enlaces*/
+        ol li {
+            list-style-type: lower-greek;
+            list-style-position: inside;
+        }
+
+        ul li {
+            list-style-image: url(img/face-smile-wink-regular.svg);
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: red;
+        }
+
+        /* Estilos para las tablas */
+        table {
+            border-collapse: separate;
+            border-spacing: 10px;
+            caption-side: bottom;
+        }
+
+
+        th, td {
+            border: 1px solid blue;
+            padding: 5px;
+            empty-cells: hide;
+            width: 100px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <main>
+        <ul>
+            <li><a href="#">Enlace1</a></li>
+            <li><a href="#">Enlace2</a></li>
+            <li><a href="#">Enlace3</a></li>
+            <li><a href="#">Enlace4</a></li>
+        </ul>
+        <ol>
+            <li>Elemento1</li>
+            <li>Elemento2</li>
+            <li>Elemento3</li>
+        </ol>
+        <hr><br>
+        <table>
+            <caption>Titulo</caption>
+            <thead>
+                <tr>
+                    <th>cabecera1</th>
+                    <th></th>
+                    <th>cabecera3</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>celda1</td>
+                    <td>celda2</td>
+                    <td>celda3</td>
+                    <td>celda4</td>
+                </tr>
+                <tr>
+                    <td>celda1</td>
+                    <td>celda2</td>
+                    <td>celda3</td>
+                    <td>celda4</td>
+                </tr>
+                <tr>
+                    <td>celda1</td>
+                    <td>celda2</td>
+                    <td>celda3</td>
+                    <td>celda4</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>

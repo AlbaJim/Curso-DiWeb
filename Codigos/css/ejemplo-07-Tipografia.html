@@ -1,0 +1,75 @@
+<!-- ejemplo-07-Tipografia -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipografia</title>
+    <style>
+      
+        /*
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+        */
+
+        @font-face {
+            font-family: roboto;
+            src: url(fonts/Roboto/Roboto-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: opensans;
+            src: url(fonts/Open_Sans/static/OpenSans-Regular.ttf);
+        }
+
+        h1 {
+            color: blue;
+            font-family: "roboto";
+            font-size: 20px;
+            font-weight: 300;
+            font-style: italic;
+            font-variant: small-caps;       /* Versalitas */
+        }
+
+        
+        main p:nth-of-type(5) {
+            width: 60%;
+            text-align: justify;
+            line-height: 1.5em;
+            text-decoration: overline;
+            text-transform: capitalize;
+            text-indent: 2em;
+            letter-spacing: 0.1em;
+            word-spacing: 0.3em;
+        }
+
+        /* Pseudo-elemento Letra capital */
+        main p:nth-of-type(5)::first-letter {
+            font-size: 40px;
+            color: red;
+            padding: 2px;
+            background-color: blue;
+            border: 2px solid gray;
+        }
+
+        /* Pseudo-elemento Primera Línea */
+        main p:nth-of-type(5)::first-line {
+            color: green;
+        }
+    </style>    
+</head>
+<body>
+    <main>
+        <h1>Titulo de la página</h1>
+        <h2>Subtitulo</h2>
+        <p>Párrafo1</p>
+        <hr>
+        <p>Párrafo2</p>
+        <p>Párrafo3</p>
+        <p>Párrafo4</p>
+        <p>El lenguaje de programación 
+            Java 
+            fue desarrollado originalmente por James Gosling, de Sun Microsystems (constituida en 1983 y posteriormente adquirida el 27 de enero de 2010 por la compañía Oracle),4​ y publicado en 1995 como un componente fundamental de la plataforma Java de Sun Microsystems. Su sintaxis deriva en gran medida de C y C++, pero tiene menos utilidades de bajo nivel que cualquiera de ellos. Las aplicaciones de Java son compiladas a bytecode (clase Java), que puede ejecutarse en cualquier máquina virtual Java (JVM) sin importar la arquitectura de la computadora subyacente.</p>
+    </main>
+</body>
+
+</html>

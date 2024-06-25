@@ -1,0 +1,72 @@
+<!-- ejemplo-10-Formularios -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        form label {
+            width: 25%;
+            float: left;
+        }
+        form input {
+            margin: 0 0 5px 80px ;
+        }
+
+        form input:hover{
+            background-color: aqua;
+        }
+
+        form input:focus {
+            background-color: orange;
+        }
+
+        form input[type="submit"] {
+            margin-top: 15px;
+        }
+
+        fieldset {
+            width: 40%;
+            float: left;
+            height: 120px;
+            margin-left: 4%;
+            border: 1px solid blue;
+        }
+
+        legend {
+            color: green;
+        }
+
+        /* Propiedades CSS3 */
+        fieldset {
+            border-radius: 20% 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Acceso</legend>
+                <label for="correo">Correo</label>
+                <input type="email" name="correo" id="correo"><br>
+                <label for="clave">Contraseña</label>
+                <input type="password" name="clave" id="clave">
+            </fieldset>
+            <fieldset>
+                <legend>Mis Datos</legend>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre"><br>
+                <label for="fechanac">Fecha nacimiento</label>
+                <input type="date" name="fechanac" id="fechanac">
+            </fieldset>
+            <input type="submit" value="Enviar">
+        </form>
+    </main>
+</body>
+
+</html>
